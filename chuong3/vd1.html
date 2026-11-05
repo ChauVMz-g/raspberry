@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="FET-IUH IoT Team">
+    <meta name="dcterms.created" content="T6, 14 Thg6 2019 01:37:13 GMT">
+    <meta name="description" content="Design Platform for IoT Laboratory">
+    <meta name="keywords" content="Internet of things, Lorawan, Raspberry Pi 4">
+    <title>Sample Website of FET-IUH IoT Team</title>
+</head>
+<body>
+    <h2 align = center>FET-IUH IoT Team</h2>
+    <p align = center>-*- This is a sample Website -*-</p>
+    <div align = left>
+        <p>
+            <font color="red"><b>FET-IUH IoT Team</b></font><br />
+            <font color="blue">Design Platform for IoT Laboratory</font><br />
+        </p>
+        <p>
+            <button onclick="openWin()">Welcome to fet.iuh.edu.vn</button>
+            <button onclick="closeWin()">Close Website fet.iuh.edu.vn</button>
+        </p>
+    </div>
+    <script>
+        var myWindow;
+        function openWin()
+        {
+            myWindow = window.open("http://fet.iuh.edu.vn", "_blank");
+        }
+        function closeWin()
+        {
+            myWindow.close();
+        }
+    </script>
+</body>
+</html>

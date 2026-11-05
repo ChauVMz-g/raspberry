@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="FET-IUH IoT Team">
+    <meta name="dcterms.created" content="T6, 14 Thg6 2019 01:37:13 GMT">
+    <meta name="description" content="Design Platform for IoT Laboratory">
+    <meta name="keywords" content="Internet of things, Lorawan, Raspberry Pi 4">
+    <title>LED Control Website</title>
+</head>
+<body>
+    <h2 align = center>-*- LED Control Website -*-</h2>
+    <div align = center>
+        <p>
+            <font color="red"><b>FET-IUH IoT Team</b></font><br />
+            <font color="blue">Design Platform for IoT Laboratory</font><br />
+        </p>
+        <p>
+            <font color="green">Click on button for control LED</font><br />
+            <button onclick="LED_On()">ON</button>
+            <button onclick="LED_Off()">OFF</button>
+        </p>
+    </div>
+    <script>
+        var url = "https://api.thingspeak.com/update?";
+        var params_on = "api_key=VN9L7BBX6YI4LWJ3&field1=1";
+        var params_off = "api_key=VN9L7BBX6YI4LWJ3&field1=0";
+        var xhr = new XMLHttpRequest();
+
+        function LED_On()
+        {
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(params_on);
+        }
+
+        function LED_Off()
+        {
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(params_off);
+        }
+    </script>
+</body>
+</html>
