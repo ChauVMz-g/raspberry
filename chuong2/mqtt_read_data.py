@@ -1,3 +1,4 @@
+import paho.mqtt.client as mqtt
 
 channelId = 3568107
 username = 'PAYoOyQgKgIEGgAHDy8cGgw'
