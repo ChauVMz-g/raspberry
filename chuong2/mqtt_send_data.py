@@ -7,7 +7,7 @@ username = 'PAYoOyQgKgIEGgAHDy8cGgw'
 clientId = 'PAYoOyQgKgIEGgAHDy8cGgw'
 password = 'eD7A/jynesN0/F1yDfR/EEwI'
 
-client = mqtt.Client(clientId)
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, clientId)
 client.username_pw_set(username=username, password=password)
 client.connect("mqtt3.thingspeak.com", 1883, 60)
 
