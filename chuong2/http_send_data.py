@@ -2,17 +2,17 @@ from urllib import request, parse
 from time import sleep
 from random import randint
 
-# Channel ID: 
-# Author: 
-# API Key (Write):  
-# API Key (Read): 
+#Channel ID: 3568107
+#Author: mwa0000037711030
+#API Key (Write): 5HOOHU5I7V50O07H
+#API Key (Read): 491MYM357SKR19ES
 
 def make_param_thingspeak(data):
     params = parse.urlencode({'field1': data}).encode()
     return params
 
 def thingspeak_post(params):
-    api_key_write = ""
+    api_key_write = "5HOOHU5I7V50O07H"
     req = request.Request('https://api.thingspeak.com/update', method="POST")
     req.add_header("Content-Type", "application/x-www-form-urlencoded")
     req.add_header("X-THINGSPEAKAPIKEY", api_key_write)
