@@ -16,7 +16,7 @@ def thingspeak_mqtt(data):
 
 while True:
     data_random = randint(0,50)
-    print (data_random)
+    print(data_random)
 
     thingspeak_mqtt(data_random)
     sleep(20)

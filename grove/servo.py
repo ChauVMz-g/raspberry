@@ -1,9 +1,9 @@
-import RPi.GPIO as IO
 import sys
 import time
-from numpy import interp
 
-servo_pin = 12
+import RPi.GPIO as IO
+from numpy import interp
+SERVO_PIN = 12
 IO.setwarnings(False)
 IO.setmode(IO.BCM)
 
@@ -25,7 +25,7 @@ class GroveServo:
         tmp = interp(angle, [0, 180], [25, 125])
         self.pwm.ChangeDutyCycle(round(tmp/10.0, 1))
 
-servo = GroveServo(servo_pin)
+servo = GroveServo(SERVO_PIN)
 
 while(True):
     for x in range(0, 180, 10):

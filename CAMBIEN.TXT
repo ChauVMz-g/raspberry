@@ -1,0 +1,15 @@
+Cảm biến khoảng cách HC-SR07
+Cảm biến nhiệt độ và độ ẩm DHT22
+Buzzer
+Cảm biến ánh sáng Light Sensor
+Servo
+Relay
+Cảm biến chuyển động PIR
+Cảm biến siêu âm Ultrasonic Ranger
+LCD 16x2
+Cảm biến nhiệt độ và độ ẩm DHT11
+Cảm biến độ ẩm Moisture Sensor
+ADC
+
+
+https://api.thingspeak.com/update?api_key=AO3PSIWJW8EB3CNK&field1=24&field2=90

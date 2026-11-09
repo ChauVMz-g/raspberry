@@ -1,0 +1,13 @@
+1. Đọc dữ liệu từ cảm biến nhiệt độ và độ ẩm
+2. Gửi dữ liệu nhiệt độ và độ ẩm lên server thingspeak
+3. Từ nhiệt độ đo được, điều khiển LED đỏ sáng khi nhiệt độ > 40 độ C, tắt khi < 30 độ C
+4. Từ độ ẩm đo được, điều khiển motor servo quay một góc tương ứng với giá trị độ ẩm
+5. Từ nhiệt độ đo được, điều khiển chuông (Buzzer) kêu beep mỗi 1s (1 giây beep, 1 giây không beep) khi nhiệt độ vượt quá 50 độ chuông
+6. Gửi nhiệt độ và độ ẩm lên server thingspeak
+7. Tạo giao diện web dùng Node-RED, hiển thị giá trị nhiệt độ và độ ẩm của phòng
+
+Từ yêu cầu trên, phân chia công việc như sau:
+1. Viết code python và chạy trên raspberry, đọc dữ liệu từ cảm biến -> Gửi lên server thingspeak 
+-> Bật led sáng -> Điều khiển servo quay -> Bật buzzer cảnh báo
+2. Tạo giao diện web, đọc dữ liệu từ server thingspeak và hiển thị lên màn hình
+3. Lắp mạch lên board

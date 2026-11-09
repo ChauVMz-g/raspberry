@@ -1,0 +1,197 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "04170ef6c1f571f5",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "Nhiệt độ",
+        "topic": "channels/3570604/subscribe/fields/field1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "brokerTS",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 740,
+        "y": 160,
+        "wires": [
+            [
+                "80eb0813fc40a4c1",
+                "770ef9e88b45076c"
+            ]
+        ]
+    },
+    {
+        "id": "60435d7dcb6d5574",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "Độ ẩm",
+        "topic": "channels/3570604/subscribe/fields/field2",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "brokerTS",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 750,
+        "y": 360,
+        "wires": [
+            [
+                "0b2e7d20aca6d3fd",
+                "0e60590dd630a0e2"
+            ]
+        ]
+    },
+    {
+        "id": "80eb0813fc40a4c1",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "a1f9cdd84335e9c0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge nhiệt độ",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 980,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0b2e7d20aca6d3fd",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "a1f9cdd84335e9c0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge độ ẩm",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 980,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "770ef9e88b45076c",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "0e60590dd630a0e2",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "brokerTS",
+        "type": "mqtt-broker",
+        "name": "ThingSpeak",
+        "broker": "mqtt3.thingspeak.com",
+        "port": "1883",
+        "clientid": "GwsKIxkcJjwLJDQZIzo0HhI",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a1f9cdd84335e9c0",
+        "type": "ui_group",
+        "name": "Phòng",
+        "tab": "3360e423112deb19",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3360e423112deb19",
+        "type": "ui_tab",
+        "name": "Giám sát",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6b220868b344441f",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

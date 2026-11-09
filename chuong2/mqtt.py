@@ -11,7 +11,6 @@ password = 'eD7A/jynesN0/F1yDfR/EEwI'
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("[MQTT] Đã kết nối thành công tới ThingSpeak Broker!")
-        # Subscribe vào topic lắng nghe field3 (hoặc toàn bộ channel)
         topic_sub = f"channels/{channelId}/subscribe/fields/field3"
         client.subscribe(topic_sub)
         print(f"[MQTT] Đã đăng ký lắng nghe topic: {topic_sub}\n")
