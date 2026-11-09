@@ -8,7 +8,6 @@ import paho.mqtt.client as mqtt
 from seeed_dht import DHT
 
 import RPi.GPIO as IO
-
 IO.setwarnings(False)
 IO.setmode(IO.BCM)
 

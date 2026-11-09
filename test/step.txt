@@ -11,3 +11,4 @@ Từ yêu cầu trên, phân chia công việc như sau:
 -> Bật led sáng -> Điều khiển servo quay -> Bật buzzer cảnh báo
 2. Tạo giao diện web, đọc dữ liệu từ server thingspeak và hiển thị lên màn hình
 3. Lắp mạch lên board
+

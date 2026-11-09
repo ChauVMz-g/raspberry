@@ -12,10 +12,10 @@ def main():
         print('temperature {}C, humidity {}%'.format(temp, humi))
 
         lcd.setCursor(0,0)
-        lcd.write('temperature: {0:2}C'.format(temp))
+        lcd.write('Temp: {0:2}C'.format(temp))
 
         lcd.setCursor(1,0)
-        lcd.write('humidity: {0:5}%'.format(humi))
+        lcd.write('Humid: {0:5}%'.format(humi))
 
         time.sleep(1)
 
