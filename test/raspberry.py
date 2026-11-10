@@ -85,7 +85,7 @@ def main():
       print(f"Nhiet do: {last_temp}°C, Do am: {last_humi}%")
 
       # 1. Điều khiển LED
-      if last_temp > 26:
+      if last_temp > 25:
         led.on()
       elif last_temp < 26:
         led.off()
@@ -94,7 +94,7 @@ def main():
       servo.setAngle(last_humi)
 
       # 3. ĐIỀU KHIỂN CÒI BẰNG GPIOZERO (Kêu 1s, tắt 1s)
-      if last_temp > 40:
+      if last_temp > 25:
         if not is_beeping:
           buzzer.beep(on_time=1, off_time=2)  # Bắt đầu luồng beep ngầm
           is_beeping = True
