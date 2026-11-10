@@ -93,8 +93,8 @@ def main():
       # 2. Điều khiển Servo
       servo.setAngle(last_humi)
 
-      # 3. ĐIỀU KHIỂN CÒI BẰNG GPIOZERO (Kêu 1s, tắt 1s)
-      if last_temp > 25:
+      # 3. ĐIỀU KHIỂN CÒI BẰNG GPIOZERO
+      if last_temp > 40:
         if not is_beeping:
           buzzer.beep(on_time=1, off_time=2)  # Bắt đầu luồng beep ngầm
           is_beeping = True
