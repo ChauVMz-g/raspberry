@@ -79,13 +79,13 @@ def main():
       humi, temp = sensor.read()
 
       if temp is not None and humi is not None:
-        last_temp = temp
-        last_humi = humi
+        last_temp = round(temp,1)
+        last_humi = round(humi,1)
 
       print(f"Nhiet do: {last_temp}°C, Do am: {last_humi}%")
 
       # 1. Điều khiển LED
-      if last_temp > 35:
+      if last_temp > 26:
         led.on()
       elif last_temp < 26:
         led.off()
