@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 from time import sleep
 from random import randint
 
-channelId = 3568107
+channelId = '3570604'
 username = 'GwsKIxkcJjwLJDQZIzo0HhI'
 clientId = 'GwsKIxkcJjwLJDQZIzo0HhI'
 password = 'voRTtpGdrWyCAwVvFAj6W64W'
