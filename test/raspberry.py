@@ -12,9 +12,9 @@ IO.setwarnings(False)
 IO.setmode(IO.BCM)
 
 SENSOR_PIN = 5
-LED_PIN = 6
-SERVO_PIN = 18
-BUZZER_PIN = 12
+LED_PIN = 16
+SERVO_PIN = 12
+BUZZER_PIN = 22
 
 buzzer = Buzzer(BUZZER_PIN)
 

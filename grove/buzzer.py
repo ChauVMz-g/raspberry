@@ -14,7 +14,7 @@ pause()
 from grove.gpio import GPIO
 import sys, time
 
-BUZZER_PIN = 12
+BUZZER_PIN = 32
 
 class GroveBuzzer(GPIO):
     def __init__(self, pin):
