@@ -1,10 +1,10 @@
 import sys
 from time import sleep
 
-from gpiozero import Buzzer
-from grove.gpio import GPIO
-from numpy import interp
 import paho.mqtt.client as mqtt
+from grove.gpio import GPIO
+from gpiozero import Buzzer
+from numpy import interp
 from seeed_dht import DHT
 
 import RPi.GPIO as IO
@@ -70,7 +70,7 @@ def main():
   servo = GroveServo(SERVO_PIN)
 
   timer_counter = 0
-  is_beeping = False  # Biến kiểm soát trạng thái Beep
+  is_beeping = False
   last_temp = 0.0
   last_humi = 0.0
 
@@ -85,18 +85,18 @@ def main():
       print(f"Nhiet do: {last_temp}°C, Do am: {last_humi}%")
 
       # 1. Điều khiển LED
-      if last_temp > 40:
+      if last_temp > 35:
         led.on()
-      elif last_temp < 30:
+      elif last_temp < 26:
         led.off()
 
       # 2. Điều khiển Servo
       servo.setAngle(last_humi)
 
       # 3. ĐIỀU KHIỂN CÒI BẰNG GPIOZERO (Kêu 1s, tắt 1s)
-      if last_temp > 50:
+      if last_temp > 40:
         if not is_beeping:
-          buzzer.beep(on_time=1, off_time=1)  # Bắt đầu luồng beep ngầm
+          buzzer.beep(on_time=1, off_time=2)  # Bắt đầu luồng beep ngầm
           is_beeping = True
       else:
         if is_beeping:
@@ -115,7 +115,7 @@ def main():
     print("\n[INFO] Đã dừng chương trình.")
   finally:
     led.off()
-    buzzer.off()  # Tắt còi an toàn
+    buzzer.off()
     servo.stop()
     IO.cleanup()
 
