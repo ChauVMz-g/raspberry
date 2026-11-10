@@ -65,7 +65,7 @@ class GroveServo:
 
 
 def main():
-  sensor = DHT("11", SENSOR_PIN)
+  sensor = DHT("22", SENSOR_PIN)
   led = GroveLED(LED_PIN)
   servo = GroveServo(SERVO_PIN)
 
