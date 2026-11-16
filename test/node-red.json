@@ -20,11 +20,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 740,
-        "y": 160,
+        "y": 120,
         "wires": [
             [
-                "80eb0813fc40a4c1",
-                "770ef9e88b45076c"
+                "80eb0813fc40a4c1"
             ]
         ]
     },
@@ -42,11 +41,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 750,
-        "y": 360,
+        "y": 320,
         "wires": [
             [
-                "0b2e7d20aca6d3fd",
-                "0e60590dd630a0e2"
+                "0b2e7d20aca6d3fd"
             ]
         ]
     },
@@ -107,46 +105,12 @@
         "wires": []
     },
     {
-        "id": "770ef9e88b45076c",
-        "type": "debug",
-        "z": "f6f2187d.f17ca8",
-        "name": "debug 1",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 960,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "0e60590dd630a0e2",
-        "type": "debug",
-        "z": "f6f2187d.f17ca8",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 960,
-        "y": 400,
-        "wires": []
-    },
-    {
         "id": "brokerTS",
         "type": "mqtt-broker",
         "name": "ThingSpeak",
         "broker": "mqtt3.thingspeak.com",
         "port": "1883",
-        "clientid": "GwsKIxkcJjwLJDQZIzo0HhI",
+        "clientid": "EjA0IRokGyITOiseHgAIHws",
         "autoConnect": true,
         "usetls": false,
         "protocolVersion": "4",
@@ -187,7 +151,7 @@
         "hidden": false
     },
     {
-        "id": "6b220868b344441f",
+        "id": "5f51bd3e69bc2919",
         "type": "global-config",
         "env": [],
         "modules": {
