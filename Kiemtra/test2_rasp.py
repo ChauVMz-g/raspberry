@@ -20,7 +20,7 @@ API_KEY_WRITE = "KG8ED62ME1SB70C7"
 class GroveLightSensor:
     def __init__(self, channel):
         self.channel = channel
-        self.adc = ADC()
+        self.adc = ADC(address=0x08)
 
     @property
     def light(self):
