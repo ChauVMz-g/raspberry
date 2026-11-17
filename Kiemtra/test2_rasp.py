@@ -13,7 +13,7 @@ LIGHT_PIN = "0"
 ULTRASONIC_PIN = "5"
 
 LED_PIN = "16"
-BUZZER_PIN = "12"
+BUZZER_PIN = "18"
 
 BASE_URL = "https://api.thingspeak.com"
 API_KEY_WRITE = "KG8ED62ME1SB70C7"
@@ -32,17 +32,17 @@ def main():
     lcd = JHD1802()   #LCD
 
     led = LED(LED_PIN)   # LED bật/tắt
-    buzzer = GroveBuzzer(BUZZER_PIN)   # Buzzer bật/tắt
+    led_status = 0
 
-    # Output: Gửi dữ liệu lên thingspeak
-    # Output: Terminal và LCD
+    buzzer = GroveBuzzer(BUZZER_PIN)   # Buzzer bật/tắt
+    buzzer_status = 0
 
     print_counter = 0
     write_counter = 0
 
     try:
         while True:
-            value1 = light_sensor.value
+            value1 = light_sensor.light
             value2 = distance_sensor.get_distance()
 
             #In ra LCD và màn hình mỗi 10s
@@ -57,22 +57,25 @@ def main():
                 print_counter += 1
 
             #LED
-            if (value1 > 500):
+            if (value1 > 200):
                 led.on()
-            elif (value1 < 300):
+                led_status = 1
+            elif (value1 < 150):
                 led.off()
+                led_status = 0
 
             #BUZZER
-            if (value2 < 30):
+            if (value2 < 10):
                 buzzer.on()
-            elif (value2 > 60):
+                buzzer_status = 1
+            elif (value2 > 40):
                 buzzer.off()
+                buzzer_status = 0
 
-
-            # Data lên server
+            # Gửi Data lên server mỗi 20s
             if (write_counter >= 20):
                 write_counter = 0
-                thingspeak_write({1: value1, 2: value2 })
+                thingspeak_write({1: value1, 2: value2, 3: led_status, 4: buzzer_status })
             else:
                 write_counter += 1
             sleep(1)
