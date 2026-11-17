@@ -1,8 +1,8 @@
 import sys
 from time import sleep
 from urllib import request, parse, error
+from grove.adc import ADC
 
-from grove.grove_light_sensor_v1_2 import GroveLightSensor   # Cảm biến ánh sáng (A0)
 from grove.grove_ultrasonic_ranger import GroveUltrasonicRanger  # Cảm biến khoảng cách (D5)
 from grove.display.jhd1802 import JHD1802  # LCD I2C
 
@@ -11,11 +11,21 @@ from gpiozero import LED, Buzzer
 LIGHT_PIN = 0         # Cổng Analog A0
 ULTRASONIC_PIN = 5    # Cổng Digital D5
 
-LED_PIN = 16          # Cổng Digital D16 (GPIO 16)
+LED_PIN = 22
 BUZZER_PIN = 18       # Cổng Digital D18 (GPIO 18)
 
 BASE_URL = "https://api.thingspeak.com"
 API_KEY_WRITE = "KG8ED62ME1SB70C7"
+
+class GroveLightSensor:
+    def __init__(self, channel):
+        self.channel = channel
+        self.adc = ADC()
+
+    @property
+    def light(self):
+        value = self.adc.read(self.channel)
+        return value
 
 def thingspeak_write(fields):
     try:

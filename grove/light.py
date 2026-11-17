@@ -22,7 +22,7 @@ while True:
     time.sleep(1)
 """
 
-
+"""
 import time
 import sys
 from grove.grove_light_sensor_v1_2 import GroveLightSensor
@@ -42,3 +42,4 @@ try:
 except KeyboardInterrupt:
     print("\nĐã dừng chương trình.")
     sys.exit(0)
+"""
