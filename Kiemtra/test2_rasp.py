@@ -48,7 +48,6 @@ def main():
     write_counter = 0
 
     print("Hệ thống IoT giám sát đang khởi chạy...")
-    print("Nhấn Ctrl+C để dừng chương trình an toàn.\n")
 
     try:
         while True:
@@ -100,7 +99,6 @@ def main():
         led.off()
         buzzer.off()
         print("[SAFE EXIT] Đã tắt LED, Buzzer và thoát chương trình.")
-        sys.exit(0)
 
 if __name__ == "__main__":
     main()
