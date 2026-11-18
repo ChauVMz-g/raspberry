@@ -109,6 +109,7 @@ def main():
       if timer_counter >= PUBLISH_INTERVAL:
         publish(last_temp, last_humi, int(led_status), int(is_beeping))
         timer_counter = 0
+        print("Đã gửi dữ liệu lên server thingspeak!")
 
       sleep(1)
 
