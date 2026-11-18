@@ -84,7 +84,7 @@ def main():
       print(f"Nhiet do: {last_temp}°C, Do am: {last_humi}%")
 
       # 1. Điều khiển LED
-      if last_temp > 40:
+      if last_temp > 20:
         led.on()
         led_status = True
       elif last_temp < 30:
