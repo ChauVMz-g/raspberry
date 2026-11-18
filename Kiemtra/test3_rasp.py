@@ -62,7 +62,7 @@ class GroveServo:
     self.pwm.stop()
 
 def main():
-  sensor = DHT("22", SENSOR_PIN)
+  sensor = DHT("11", SENSOR_PIN)
   led = GroveLED(LED_PIN)
   servo = GroveServo(SERVO_PIN)
   buzzer = Buzzer(BUZZER_PIN)
