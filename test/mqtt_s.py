@@ -6,7 +6,7 @@ from random import randint
 CHANNEL_ID = "3570604"
 CLIENT_ID = "EjA0IRokGyITOiseHgAIHws"
 USERNAME = "EjA0IRokGyITOiseHgAIHws"
-PASSWORD = "F9tj4Lk8MEh4zPBANnf+Hypu"
+PASSWORD = "5an/Yo9U22SmWzo9Ap4iCGE7"
 BROKER_HOST = "mqtt3.thingspeak.com"
 PUBLISH_INTERVAL = 20
 

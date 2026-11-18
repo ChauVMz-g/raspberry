@@ -1,3 +1,4 @@
+
 from urllib import request, parse, error
 from time import sleep
 import json
@@ -22,7 +23,8 @@ def main():
             if value is None:
                 print("Chưa có dữ liệu")
             else:
-                print(f"Kết quả: {value[1]} {value[2]}")
+                print(f"Cường độ ánh sáng: {value[1]}")
+                print(f"Khoảng cách: {value[2]}")
         except (error.URLError, TimeoutError, ValueError) as e:
             print("Lỗi:", e)
         

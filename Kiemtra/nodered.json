@@ -1,0 +1,159 @@
+[
+    {
+        "id": "tsflow",
+        "type": "tab",
+        "label": "ThingSpeak Giám sát",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "uitab",
+        "type": "ui_tab",
+        "name": "Giám sát IoT",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "uigrp",
+        "type": "ui_group",
+        "name": "Trạng thái",
+        "tab": "uitab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "inj1",
+        "type": "inject",
+        "z": "tsflow",
+        "name": "Mỗi 15 giây",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "http1"
+            ]
+        ]
+    },
+    {
+        "id": "http1",
+        "type": "http request",
+        "z": "tsflow",
+        "name": "ThingSpeak: bản ghi mới nhất",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.thingspeak.com/channels/3570604/feeds/last.json?api_key=OJ6MI36OSJMSZ61Y",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "fn1"
+            ]
+        ]
+    },
+    {
+        "id": "fn1",
+        "type": "function",
+        "z": "tsflow",
+        "name": "Tách field3 (LED) và field4 (servo)",
+        "func": "const f = msg.payload;\nif (!f || typeof f !== 'object' || f.field3 === undefined) {\n    node.warn('Kênh chưa có dữ liệu hoặc API key sai');\n    return null;\n}\nreturn [\n    { payload: Number(f.field3) === 1 },\n    { payload: Number(f.field4) }\n];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 120,
+        "wires": [
+            [
+                "led1"
+            ],
+            [
+                "gauge1"
+            ]
+        ]
+    },
+    {
+        "id": "led1",
+        "type": "ui_led",
+        "z": "tsflow",
+        "order": 1,
+        "group": "uigrp",
+        "width": 0,
+        "height": 0,
+        "label": "LED cảnh báo nhiệt",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#9e9e9e",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 900,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "gauge1",
+        "type": "ui_gauge",
+        "z": "tsflow",
+        "name": "",
+        "group": "uigrp",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Góc quay servo",
+        "label": "°",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 180,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 900,
+        "y": 160,
+        "wires": []
+    }
+]
